@@ -91,6 +91,7 @@ func main() {
 	if len(os.Args) < 2 {
 		os.Exit(exitError)
 	}
+
 	filename := os.Args[1]
 	noun := 12
 	verb := 2
@@ -102,15 +103,10 @@ func main() {
 
 	// Grid search for answer
 
-	for i := 0; i < gridSize; i++ {
-		for j := 0; j < gridSize; j++ {
+	for noun = 0; noun < gridSize; noun++ {
+		for verb = 0; verb < gridSize; verb++ {
 
-			noun = i
-			verb = j
-			programData = copyProgram(originalProgram)
-
-			fixProgram(noun, verb, programData)
-			programData = executeProgram(programData)
+			programData = executeProgram(fixProgram(noun, verb, copyProgram(originalProgram)))
 
 			if programData[0] == goalState {
 				fmt.Printf("Part 2: %d \n", 100*noun+verb)

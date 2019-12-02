@@ -33,8 +33,6 @@ func fileFuel(filename string, fuelCalc func(int) int) int {
 	}
 	defer file.Close()
 
-	// Part 1 : sum the mass of the input lines
-
 	totalFuel := 0
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
