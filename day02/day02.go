@@ -57,11 +57,9 @@ func fixProgram(noun int, verb int, programData []int) []int {
 }
 
 func copyProgram(programData []int) []int {
-	copy := make([]int, len(programData))
-	for i, v := range programData {
-		copy[i] = v
-	}
-	return copy
+	data := make([]int, len(programData))
+	copy(data, programData)
+	return data
 }
 
 func executeProgram(programData []int) []int {
@@ -95,9 +93,10 @@ func main() {
 	filename := os.Args[1]
 	noun := 12
 	verb := 2
-	programData := fixProgram(noun, verb, loadProgram(filename))
-	originalProgram := copyProgram(programData)
-	programData = executeProgram(programData)
+	originalProgram := loadProgram(filename)
+	programData := make([]int, len(originalProgram))
+	copy(programData, originalProgram)
+	programData = executeProgram(fixProgram(noun, verb, programData))
 
 	fmt.Printf("Part 1: %d\n", programData[0])
 
@@ -106,7 +105,8 @@ func main() {
 	for noun = 0; noun < gridSize; noun++ {
 		for verb = 0; verb < gridSize; verb++ {
 
-			programData = executeProgram(fixProgram(noun, verb, copyProgram(originalProgram)))
+			copy(programData, originalProgram)
+			programData = executeProgram(fixProgram(noun, verb, programData))
 
 			if programData[0] == goalState {
 				fmt.Printf("Part 2: %d \n", 100*noun+verb)
