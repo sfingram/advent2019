@@ -1,5 +1,7 @@
 ## Advent 2019 log
 
+This is a log of my experiences working on this years Advent of Code.  I never finish these, but it's always fun to get started and try.  I'm going to use Go this year rather than python.
+
 ### Day 1
 
 #### Part 1

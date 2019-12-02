@@ -56,12 +56,6 @@ func fixProgram(noun int, verb int, programData []int) []int {
 	return programData
 }
 
-func copyProgram(programData []int) []int {
-	data := make([]int, len(programData))
-	copy(data, programData)
-	return data
-}
-
 func executeProgram(programData []int) []int {
 
 	for i := 0; i < len(programData); i++ {
