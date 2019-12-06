@@ -31,3 +31,5 @@ If I was doing this in python I would just compute all the points on the lines a
 For part one, I computed all the line segments and then compute all the intersections of the line segments in a nested loop.  I then loop over the intersections and compute their minimum manhattan distance, keeping track of the minimum distance.  Using segments is tricky because you need to make sure the order in which you handle points is consistent.  
 
 For part two, I traverse the segments, keeping track of the distance travelled and then record that distance for each point/wire pair.  I use some `map`s to make it `O(1)` for whether there is a point in the intersection.
+
+In hindsight, I solved this problem incorrectly.  I should have taken the "pixel" approach, given that I knew the board is discrete and the numbers of points aren't too big.  Instead I created a solution that is resolution independent which was complicated and time-consuming.
