@@ -23,3 +23,11 @@ I initially errored by thinking that the input data was line-by-line instead of 
 Went very smoothly.  Refactored the previous solution to be paramterized.  Just doing a grid search over the parameter space was enough to efficiently find the answer.
 
 Did a little post-cleanup to reduce the number of allocations instead of allocating inside of the loop.
+
+### Day 3
+
+If I was doing this in python I would just compute all the points on the lines and their manhattan distances as a single set per wire, then take the min value of the intersections of the sets.  I decided to do line segments and intersections in Go, which turned out to be more work.
+
+For part one, I computed all the line segments and then compute all the intersections of the line segments in a nested loop.  I then loop over the intersections and compute their minimum manhattan distance, keeping track of the minimum distance.  Using segments is tricky because you need to make sure the order in which you handle points is consistent.  
+
+For part two, I traverse the segments, keeping track of the distance travelled and then record that distance for each point/wire pair.  I use some `map`s to make it `O(1)` for whether there is a point in the intersection.
