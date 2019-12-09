@@ -33,3 +33,9 @@ For part one, I computed all the line segments and then compute all the intersec
 For part two, I traverse the segments, keeping track of the distance travelled and then record that distance for each point/wire pair.  I use some `map`s to make it `O(1)` for whether there is a point in the intersection.
 
 In hindsight, I solved this problem incorrectly.  I should have taken the "pixel" approach, given that I knew the board is discrete and the numbers of points aren't too big.  Instead I created a solution that is resolution independent which was complicated and time-consuming.
+
+### Day 4
+
+Very straightforward part 1.  For checking digits, I vacillated between iterating over characters and converting them to single digit integers.  In the end, I knew that the number of digits was fixed and it would be pretty simple and efficient to just extract them with integer operations into an array literal and return that.  Everything else just follows using a counter hash.
+
+### Day 5
