@@ -39,3 +39,8 @@ In hindsight, I solved this problem incorrectly.  I should have taken the "pixel
 Very straightforward part 1.  For checking digits, I vacillated between iterating over characters and converting them to single digit integers.  In the end, I knew that the number of digits was fixed and it would be pretty simple and efficient to just extract them with integer operations into an array literal and return that.  Everything else just follows using a counter hash.
 
 ### Day 5
+
+Day 5 is where advent of code starts to lose me.  I always want these to be cute little exercises that have some puzzle-like aspect to them.  Instead we get this:  the true puzzle is in consuming and understanding the detail and specification.
+
+Once you understand what is being asked, the implementation requires only a couple tweaks to day 2's interpreter.
+
