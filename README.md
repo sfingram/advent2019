@@ -44,3 +44,7 @@ Day 5 is where advent of code starts to lose me.  I always want these to be cute
 
 Once you understand what is being asked, the implementation requires only a couple tweaks to day 2's interpreter.
 
+### Day 6
+
+This was a nice little programming exercise.  In part 1 I used a recursive dynamic programming solution, and in part 2 I just took advantage of some graph properties.
+
