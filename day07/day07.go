@@ -217,34 +217,34 @@ func main() {
 	filename := os.Args[1]
 	originalProgram := loadProgram(filename)
 
-	// ch := make(chan []int)
-	// go func() {
-	// 	Perm([]int{0, 1, 2, 3, 4}, ch)
-	// 	close(ch)
-	// }()
+	ch := make(chan []int)
+	go func() {
+		Perm([]int{0, 1, 2, 3, 4}, ch)
+		close(ch)
+	}()
 
-	// var max int
-	// for p := range ch {
-	// 	output := []int{0}
-	// 	for _, v := range p {
-	// 		output = executeProgram(append([]int{}, originalProgram...), []int{v, output[0]})
-	// 	}
-	// 	if max < output[0] {
-	// 		max = output[0]
-	// 	}
-	// }
-	// fmt.Printf("Part 1: %d\n", max)
+	var max int
+	for p := range ch {
+		output := []int{0}
+		for _, v := range p {
+			output = executeProgram(append([]int{}, originalProgram...), []int{v, output[0]})
+		}
+		if max < output[0] {
+			max = output[0]
+		}
+	}
+	fmt.Printf("Part 1: %d\n", max)
 
 	// part Two: channels galore
 
-	ch := make(chan []int)
+	ch = make(chan []int)
 	phases := []int{9, 8, 7, 6, 5}
 	go func() {
 		Perm(phases, ch)
 		close(ch)
 	}()
 
-	max := 0
+	max = 0
 	names := [5]string{"a", "b", "c", "d", "e"}
 	for p := range ch {
 		var wg sync.WaitGroup
