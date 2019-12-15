@@ -55,3 +55,7 @@ Part one required very little modification of day 5.  However, part two would re
 
 I was pretty unfamiliar with channels and goroutines in practice, so this was a useful exercise for me.  I learned some key ideas, WaitGroups, who closes channels: "senders close; receivers check for closed".
 
+### Day 8
+
+...
+
