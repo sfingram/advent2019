@@ -48,3 +48,10 @@ Once you understand what is being asked, the implementation requires only a coup
 
 This was a nice little programming exercise.  In part 1 I used a recursive dynamic programming solution, and in part 2 I just took advantage of some graph properties.
 
+
+### Day 7
+
+Part one required very little modification of day 5.  However, part two would require a big rethinking of the way input and output works.  In this case, we need to block on input!  Since we're using Go, it makes sense to me if execute program takes channels as input and output and executes its code in a goroutine.  
+
+I was pretty unfamiliar with channels and goroutines in practice, so this was a useful exercise for me.  I learned some key ideas, WaitGroups, who closes channels: "senders close; receivers check for closed".
+
